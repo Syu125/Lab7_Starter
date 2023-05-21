@@ -49,7 +49,7 @@ self.addEventListener('fetch', function (event) {
       if (response) {
         return response;
       } 
-      return fetch(event.request).then((fetchedResponse) => {
+      return fetch(event.request.url).then((fetchedResponse) => {
         cache.put(event.request, fetchedResponse);
         return fetchedResponse;
       });
